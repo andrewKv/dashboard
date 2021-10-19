@@ -1,12 +1,18 @@
 SIGNUP
-1. Sign up / sign in 5
-2. DB design 10
+1. Sign up page 5
+    1.1. Page routing
+    1.2. Register page 
 
+
+2. DB design 10
+Root Pass: password1
 
 
 DASHBOARD
 3. Visual Design implementation 5
 4. Welcome message ‘Good day Swapnil’ 2
+
+Components
 5. Weather using geolocation 7
 6. News 5
 7. Sport 10

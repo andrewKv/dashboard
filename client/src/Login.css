@@ -1,6 +1,14 @@
-.Login {
+body{
+  background: url(Assets/Background.png);
+}
+
+.Login{
   padding: 60px 0;
   text-align: center;
+}
+
+.Login .submit{
+  
 }
 
 .Login form {

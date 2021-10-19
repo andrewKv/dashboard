@@ -4,15 +4,29 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 function Login() {
-  const [email, setEmail] = useState("");
+  const [username, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  function signUp(){
+    Axios.post("https:http://localhost:3001/SignUp",{
+      username: username,
+      password: password,
+    }).then((response) =>{
+    console.log(response);
+  })
+  }
+
   function validateForm() {
     return email.length > 0 && password.length > 0;
   }
-
   function handleSubmit(event) {
     event.preventDefault();
   }
+  function handleRegister(event) {
+    event.preventDefault();
+  }
+
+
 
   return (
     <div className="Login">
@@ -34,10 +48,15 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Button block size="lg" type="submit" disabled={!validateForm()}>
+        <Button className="submit" size="lg" type="submit" disabled={!validateForm()}>
           Login
         </Button>
+
       </Form>
+
+    <div className="SignUp">
+      <a href='#' onClick={handleRegister}>Sign Up</a>
+    </div>
     </div>
   );
 }
