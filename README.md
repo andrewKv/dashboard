@@ -1,10 +1,11 @@
 SIGNUP
 1. Sign up page 5
-    1.1. Page routing
-    1.2. Register page 
-
+    1.1. Page routing   x
+    1.2. Register page  
 
 2. DB design 10
+    2.1. Post on register page
+    2.2. Get on sign in page
 Root Pass: password1
 
 

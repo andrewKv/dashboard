@@ -19,13 +19,12 @@ const encrypt = (password) =>{
 const decrypt = (encryption) => {
     const decipher = crypto.createDecipheriv('aes-256-gcm',
     Buffer.from(secret),
-    Buffer.from(encryption.iv, "hex")
+    Buffer.from(encryption.initial, "hex")
     );
 
     const returnPassword = Buffer.concat([
         decipher.update(Buffer.from(encryption.password, "hex")),
         decipher.final(),
-
     ])
     return returnPassword.toString();
 }

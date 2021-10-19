@@ -1,5 +1,6 @@
 const express = require('express')
-const app = express()
+const app = express();
+const bodyParse = require('body-parser')
 const mysql = require("mysql");
 const cors = require("cors");
 const { encrypt, decrypt } = require("./EncryptionMethods")
@@ -17,13 +18,17 @@ const dashDB = mysql.createConnection({
 app.get('/', (req, res)=>res.send("hello world"))
 
 
-app.post('/register', (req,res)=>{
-    const encryptedPassword = encrypt(password);
-    dashDB.query
+app.post('/Register', (req,res)=>{
+    const encryptedPassword = encrypt(req.body.password);
+    const sql = 'INSERT INTO dashboarddb.users (username, password, buffer) VALUES (?,?,?)';
+    dashDB.query(sql, encryptedPassword.password, req.body.username, encryptedPassword.initial),
+    (err, result)=>{
+        if (err){console.log(err)}
+        else{res.send("Send Success")}
+    }
 })
 
-
-
+app.get('/Login')
 
 app.listen(3001, () =>{
     console.log('running')
