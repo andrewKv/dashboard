@@ -1,4 +1,4 @@
-import './Login.css';
+import './App.css';
 import React, { useState, useContext } from "react";
 import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
@@ -12,8 +12,8 @@ function Register() {
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [passwordConfirm, setpasswordConfirm] = useState("");
-  const { loggedIn, changeLoggedIn } = useContext(LoginContext);
-  const { user, changeUserName } = useContext(UsernameContext);
+  const { changeLoggedIn } = useContext(LoginContext);
+  const { changeUserName } = useContext(UsernameContext);
 
   let history = useHistory();
 

@@ -1,13 +1,13 @@
-import './Login.css';
-import React, { useContext, useState, useEffect } from "react";
+import './App.css';
+import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import {useHistory} from "react-router-dom";
 import Axios from "axios";
 import {LoginContext, UsernameContext} from "./Context";
 
 function Login() {
-  const {loggedIn, changeLoggedIn} = useContext(LoginContext);
-  const {user, changeUserName} = useContext(UsernameContext);
+  const {changeLoggedIn} = useContext(LoginContext);
+  const {changeUserName} = useContext(UsernameContext);
   
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");

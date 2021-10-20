@@ -18,7 +18,6 @@ const dashDB = mysql.createConnection({
 
 app.post('/Register', (req, res) => {
     const{username, password, email} = req.body
-    console.log(req.body)
     const encryptedPassword = encrypt(password);
     dashDB.query("INSERT INTO dashboarddb.users (username, password, buffer, email) VALUES (?,?,?,?)",
     [username, encryptedPassword.password, encryptedPassword.initial, email],

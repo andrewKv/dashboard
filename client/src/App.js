@@ -13,12 +13,11 @@ function App() {
             <Switch>
                 <LoginContext.Provider value={{ loggedIn, changeLoggedIn }}>
                     <UsernameContext.Provider value={{ user, changeUserName }}>
-                        <Route path="/" exact component={Login} />
-                        <Route path="/Register" exact component={Register} />
-                        <Route path="/Dashboard" exact component={Dashboard} />
+                        <Route exact path="/" component={Login} />
+                        <Route exact path="/Register" component={Register} />
+                        <Route exact path="/Dashboard" component={Dashboard} />
                     </UsernameContext.Provider>
                 </LoginContext.Provider>
-
             </Switch>
         </Router>
     );

@@ -1,0 +1,69 @@
+body {
+  background: url(Assets/Background.png);
+}
+
+.Login {
+  padding: 60px 0;
+  text-align: center;
+}
+
+
+.Login form {
+  margin: 0 auto;
+  max-width: 320px;
+}
+
+.DashboardTitle{
+  text-align: center;
+  color: aliceblue;
+  font-size: 75px;
+  margin-bottom: 75px;
+}
+
+.ContainerTitle {
+  font-size: medium;
+}
+
+.item1 {
+  grid-area: weather;
+}
+
+.item2 {
+  grid-area: news;
+}
+
+.item3 {
+  grid-area: sport;
+}
+
+.item4 {
+  grid-area: photos;
+}
+
+.item5 {
+  grid-area: tasks;
+}
+
+.item6 {
+  grid-area: clothes;
+}
+
+.MainGrid {
+  display: grid;
+  justify-content: center;
+  grid-template: 'weather news sport' 'photos tasks clothes';
+  grid-gap: 100px;
+  padding: 10px;
+}
+
+/*Aspect ratio 421 x 309 */
+
+.MainGrid>div {
+  background-image: url(Assets/Container.png);
+  background-size: cover;
+  text-align: center;
+  height: 210px;
+  width: 340px;
+  padding: 20px 0;
+  font-size: 30px;
+}
