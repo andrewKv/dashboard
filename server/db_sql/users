@@ -7,3 +7,6 @@ CREATE TABLE `users` (
   PRIMARY KEY (`userid`),
   UNIQUE KEY `username_UNIQUE` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password1';
+flush privileges

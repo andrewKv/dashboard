@@ -8,17 +8,17 @@ function Dashboard() {
     let {user, changeUserName} = useContext(UsernameContext);
     
     // handle refresh and auth
-    const pageVisited = localStorage.getItem("authorised")?true:false
+    const pageVisited = sessionStorage.getItem("authorised")?true:false
     
     if(!loggedIn && !pageVisited){
         return <Redirect to="/"></Redirect>
     }
 
     if (user == ""){
-        changeUserName(localStorage.getItem("username"))
+        changeUserName(sessionStorage.getItem("username"))
     }
     
-    // changeLoggedIn for a log out function, clear local storage
+    // changeLoggedIn for a log out function, clear session storage
     
   return (
     <div className="Dashboard">
