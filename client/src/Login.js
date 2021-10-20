@@ -1,5 +1,5 @@
 import './Login.css';
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import {useHistory} from "react-router-dom";
 import Axios from "axios";
@@ -12,7 +12,7 @@ function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-
+  
 
   let history = useHistory();
 
@@ -29,8 +29,7 @@ function Login() {
           setErrorMsg("Login Error")
         }
         else{
-          console.log(response)
-          if (response == "Invalid password"){
+          if (response.data === "Invalid password"){
             setErrorMsg("Invalid password")
           }
           else{
@@ -47,13 +46,6 @@ function Login() {
       // case switch for each option
       setErrorMsg("Form Error")
     }
-
-
-    changeLoggedIn(true);
-    changeUserName(username);
-    sessionStorage.setItem("authorised", true)
-    sessionStorage.setItem("username", username)
-    history.push('/Dashboard')
   }
   function handleRegister(event) {
     event.preventDefault();

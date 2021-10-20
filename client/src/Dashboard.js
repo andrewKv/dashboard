@@ -18,12 +18,30 @@ function Dashboard() {
         changeUserName(sessionStorage.getItem("username"))
     }
     
-    // changeLoggedIn for a log out function, clear session storage
-    
+    function logOut(){
+      changeLoggedIn(false);
+      sessionStorage.clear();
+    }
   return (
     <div className="Dashboard">
       <h1>Good Day {user}!</h1>
+
+      <div className="Logout">
+        <a href='#' onClick={logOut}>Log Out</a>
+      </div>
+
+
+
+
+
+
+
+
+
+
     </div>
+
+
   );
 }
 
