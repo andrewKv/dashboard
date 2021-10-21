@@ -1,5 +1,6 @@
 body {
   background: url(Assets/Background.png);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .Login {
@@ -7,21 +8,102 @@ body {
   text-align: center;
 }
 
-
 .Login form {
   margin: 0 auto;
   max-width: 320px;
 }
 
-.DashboardTitle{
+.DashboardTitle {
   text-align: center;
   color: aliceblue;
   font-size: 75px;
   margin-bottom: 75px;
 }
 
+/***************************************Weather********************************/
+
+.TemperatureLabel {
+  width: 84%;
+  position: relative;
+  bottom: 90px;
+  text-align: right;
+}
+
+.CityLabel {
+  position: relative;
+  bottom: 90px;
+  font-size: 50px;
+}
+
+.WeatherIcon {
+  position: relative;
+  height: 86px;
+  width: 110px;
+  left: 10px;
+  top: 10px;
+}
+
+.WeatherIcon.Clouds {
+  content: url(Assets/Clouds_icon.png);
+}
+
+.WeatherIcon.Rain {
+  content: url(Assets/Rain_icon.png);
+}
+
+.WeatherIcon.Clear {
+  content: url(Assets/Sun_icon.png);
+}
+
+/***************************************Weather********************************/
+
+/***************************************News********************************/
+
+.NewsHeadLineMini {
+  font-size: 20px;
+  padding: 5px;
+  margin-bottom: 40px;
+}
+.News{
+  color: aliceblue;
+  font-family: 'Times New Roman', Times, serif;
+}
+.NewsDescriptionMini {
+  font-size: 13px;
+  padding: 5px;
+}
+
+.ContainerTitle.NewsTitle{
+  margin-left: 2%;
+  margin-top: 2%;
+}
+.NewsWrapper {
+  text-align: center;
+}
+
+.NewsBody {
+  text-align: justify;
+  padding: 5px;
+  margin-left: 5%;
+  margin-right: 5%;
+  overflow: auto;
+  max-height: 400px;
+}
+
+.NewsImageContainer {
+  content: url(Assets/Add_picture.png);
+  margin-left: 40%;
+  margin-right: 25%;
+}
+
+.NewsHeadline {
+  margin-bottom: 100px;
+}
+
+/***************************************News********************************/
+
 .ContainerTitle {
-  font-size: medium;
+  font-size: 30px;
 }
 
 .item1 {

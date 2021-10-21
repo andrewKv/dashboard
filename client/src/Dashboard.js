@@ -1,8 +1,9 @@
 import './App.css';
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Redirect } from 'react-router';
 import { LoginContext, UsernameContext } from "./Context";
 import Weather from "./Weather";
+import NewsMini from './NewsMini';
 
 function Dashboard() {
   const { loggedIn, changeLoggedIn } = useContext(LoginContext);
@@ -22,19 +23,23 @@ function Dashboard() {
     changeLoggedIn(false);
     sessionStorage.clear();
   }
+
+
   return (
     <div className="Dashboard">
       <div className="Logout">
         <a href='#' onClick={logOut}>Log Out</a>
       </div>
 
-      <div className="DashboardTitle">Good Day {user}!</div>
+      <div className="DashboardTitle">Good Day {user}</div>
       
       <div className="MainGrid">
         <div className="item1">
           <Weather />
         </div>
-        <div className="item2">News</div>
+        <div className="item2">
+          <NewsMini />
+        </div>
         <div className="item3">Sport</div>
         <div className="item4">Photos</div>
         <div className="item5">Tasks</div>

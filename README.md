@@ -10,18 +10,21 @@ SIGNUP
 Root Pass: password1
 
 DASHBOARD
-3. Visual Design implementation 5
+3. Visual Design implementation 5 
 4. Welcome message ‘Good day Swapnil’ 2 x
 
 Components
-5. Weather using geolocation 7
-    5.1. Weather mini 
+5. Weather using geolocation 7 x
+    5.1. Weather mini x 
 
-6. News 5
-7. Sport 10
+6. News 5 x
+7. Sport 10 
 8. Photo gallery 10
 9. Task list (assign complete) 10
 10. Favourite warmer 15
 
 # Bugs
-Multiple requests sending on render hitting api limit -> unmounting components/rerendering?
+Multiple rendering/memory leak: complicated - look into if time
+- refresh news removes context
+
+Forbidden access to news image, download and load image?

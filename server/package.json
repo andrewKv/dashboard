@@ -19,9 +19,14 @@
   },
   "homepage": "https://github.com/andrewKv/dashboard#readme",
   "dependencies": {
+    "axios": "^0.23.0",
     "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.10",
     "express": "^4.17.1",
+    "fs": "0.0.1-security",
     "mysql": "^2.18.1",
-    "nodemon": "^2.0.14"
+    "nodemon": "^2.0.14",
+    "puppeteer": "^10.4.0",
+    "xml-js": "^1.6.11"
   }
 }

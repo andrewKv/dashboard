@@ -6,7 +6,12 @@ function Weather() {
   const [errorMsg, setErrorMsg] = useState("");
   const [temp, setTemp] = useState("");
   const [city, setCity] = useState("");
-  const [weather, setWeather] = useState("");
+  const [weatherIcon, setWeatherIcon] = useState("");
+  const [state, setState] = useState({});
+
+  // Could support more weather types with icons from 
+  // https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2
+  const weatherList = ["Rain", "Clouds", "Clear"]
 
   const locationOptions = {
     enableHighAccuracy: true,
@@ -14,15 +19,21 @@ function Weather() {
     maximumAge: 0
   };
 
-  function showData(weather){
-    setWeather(weather.weather[0].main)
+  function showData(weather) {
+
+    // Default icon to clouds if no image for it
+    let weatherIcon = weather.weather[0].main
+    if (!weatherList.includes(weatherIcon)) {
+      weatherIcon = "Clouds"
+    }
+    setWeatherIcon("WeatherIcon " + weatherIcon)
     setCity(weather.name)
     setTemp(Math.ceil(weather.main.temp))
   }
-  
+
   function getWeather(pos) {
     const secretKey = 'ca2477500cmshbb2e93507cdecfdp185023jsn576bc71ae93f'
-    
+
     const weatherOptions = {
       method: 'GET',
       url: 'https://community-open-weather-map.p.rapidapi.com/weather',
@@ -55,16 +66,19 @@ function Weather() {
   // Probably a better way to do this
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(getWeather, positionError, locationOptions);
+    return ()=>{
+      setState({});
+    }
   }, []);
 
   return (
     <div className="Weather">
       <div className="ContainerTitle">Weather</div>
-      <p>{temp}</p>
-      <p>{city}</p>
-      <p>{weather}</p>
-      
+      <div className={weatherIcon}></div>
+      <p className="TemperatureLabel">{temp} degrees</p>
+      <p className="CityLabel">{city}</p>
       <p>{errorMsg}</p>
+
     </div>
 
 
