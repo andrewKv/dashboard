@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Axios from "axios";
 
 function Weather() {
@@ -19,9 +19,7 @@ function Weather() {
     setCity(weather.name)
     setTemp(Math.ceil(weather.main.temp))
   }
-
-  navigator.geolocation.getCurrentPosition(getWeather, positionError, locationOptions);
-
+  
   function getWeather(pos) {
     const secretKey = 'ca2477500cmshbb2e93507cdecfdp185023jsn576bc71ae93f'
     
@@ -41,16 +39,23 @@ function Weather() {
         'x-rapidapi-key': secretKey
       }
     };
+
     Axios.request(weatherOptions).then((response) => {
       showData(response.data)
     }).catch((error) => {
-      console.log(error);
+      setErrorMsg("Error retrieving weather: ", error);
     });
   }
 
   function positionError(err) {
     setErrorMsg("Error finding position")
   }
+
+  // Only run queries on page load rather than comnponent render
+  // Probably a better way to do this
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(getWeather, positionError, locationOptions);
+  }, []);
 
   return (
     <div className="Weather">
@@ -59,7 +64,7 @@ function Weather() {
       <p>{city}</p>
       <p>{weather}</p>
       
-
+      <p>{errorMsg}</p>
     </div>
 
 

@@ -24,4 +24,4 @@ Components
 10. Favourite warmer 15
 
 # Bugs
-Multiple requests sending on refresh -> unmounting components?
+Multiple requests sending on render hitting api limit -> unmounting components/rerendering?
