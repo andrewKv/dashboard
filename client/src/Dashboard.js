@@ -1,9 +1,10 @@
 import './App.css';
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { Redirect } from 'react-router';
 import { LoginContext, UsernameContext } from "./Context";
 import Weather from "./Weather";
 import NewsMini from './NewsMini';
+import TeamsMini from './TeamsMini';
 
 function Dashboard() {
   const { loggedIn, changeLoggedIn } = useContext(LoginContext);
@@ -27,9 +28,8 @@ function Dashboard() {
 
   return (
     <div className="Dashboard">
-      <div className="Logout">
-        <a href='#' onClick={logOut}>Log Out</a>
-      </div>
+      
+        <a className="Logout" href='#' onClick={logOut}>Log Out</a>
 
       <div className="DashboardTitle">Good Day {user}</div>
       
@@ -40,7 +40,9 @@ function Dashboard() {
         <div className="item2">
           <NewsMini />
         </div>
-        <div className="item3">Sport</div>
+        <div className="item3">
+          <TeamsMini />
+        </div>
         <div className="item4">Photos</div>
         <div className="item5">Tasks</div>
         <div className="item6">Clothes</div>

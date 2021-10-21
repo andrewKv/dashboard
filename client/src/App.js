@@ -2,7 +2,8 @@ import Login from "./Login";
 import Register from "./Register";
 import Dashboard from "./Dashboard";
 import News from "./News";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import Teams from "./Teams";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { LoginContext, UsernameContext, NewsContext } from "./Context"
 import { useState, useEffect } from "react";
 
@@ -10,7 +11,7 @@ function App() {
     const [loggedIn, changeLoggedIn] = useState(false);
     const [user, changeUserName] = useState("");
     const [newsObj, changeNewsObj] = useState({});
-    const [state, setState] = useState({});
+    const [setState] = useState({});
 
     // For console error
     useEffect(() => {
@@ -31,6 +32,7 @@ function App() {
                             <Route exact path="/Dashboard" component={Dashboard} />
                             <Route exact path="/News" component={News} />
                         </NewsContext.Provider>
+                        <Route exact path="/Teams" component={Teams} />
                     </UsernameContext.Provider>
                 </LoginContext.Provider>
             </Switch>
