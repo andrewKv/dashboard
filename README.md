@@ -19,6 +19,10 @@ Components
 
 6. News 5 x
 7. Sport 10 
+Mini - select your team
+team state 
+
+
 8. Photo gallery 10
 9. Task list (assign complete) 10
 10. Favourite warmer 15

@@ -31,7 +31,7 @@ function Dashboard() {
       
         <a className="Logout" href='#' onClick={logOut}>Log Out</a>
 
-      <div className="DashboardTitle">Good Day {user}</div>
+      <div className="MainTitle">Good Day {user}</div>
       
       <div className="MainGrid">
         <div className="item1">
