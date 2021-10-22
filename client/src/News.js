@@ -6,7 +6,7 @@ import Axios from "axios";
 
 
 function News() {
-  const [setState] = useState({});
+  const setState = useState({});
   const [errorMsg, setErrorMsg] = useState("");
   const { newsObj, changeNewsObj } = useContext(NewsContext);
   let history = useHistory();
@@ -26,15 +26,12 @@ function News() {
           changeNewsObj({ link: newsObj.link, headline: newsObj.headline, article: response.data.text, image: response.data.image })
         }
       })
-      return () => {
-        setState({});
-      }
     }
   }, []);
 
   return (
     <div className="News" onClick={homeRequest}>
-      <div className="ContainerTitle NewsTitle">News</div>
+      <div className="MainTitle NewsTitle">News</div>
       <div className="NewsWrapper">
         <div className="NewsImageContainer">
           <img src={newsObj.image} alt={newsObj.headline} />

@@ -9,6 +9,7 @@ const convert = require('xml-js');
 const cheerio = require('cheerio');
 const puppeteer = require('puppeteer');
 const fs = require('fs');
+const csv = require('csvtojson')
 
 
 app.use(express.json());
@@ -89,7 +90,7 @@ app.post('/NewsStory', (req, res) => {
             $('p').each(function () {
                 // Better way to remove unwanted text
                 let text = ($(this).text())
-                if (!(["We use cookies","Yes, I agree", "No, take me to settings"].some(v => text.includes(v)))) {
+                if (!(["We use cookies", "Yes, I agree", "No, take me to settings"].some(v => text.includes(v)))) {
                     fullText += " " + text
                 }
             });
@@ -100,11 +101,32 @@ app.post('/NewsStory', (req, res) => {
             });
 
             const headImage = imageList[0].split(',')[0]
-            res.send({text: fullText, image: headImage})
+            res.send({ text: fullText, image: headImage })
         })
         .catch((error) => {
             res.send({ error: error })
         });
+})
+
+
+app.get('/TeamFile', (req, res) => {
+    csv()
+        .fromFile('../client/src/Assets/teams.csv')
+        .then((jsonObj) => {
+            res.send(jsonObj)
+        })
+        .catch((error) => {
+            res.send({ error: error })
+        });
+
+
+
+    // fs.readFile('../client/src/Assets/teams.csv', 'utf8' , (err, data) => {
+    //     if (err) {
+    //         res.send({ error: err })
+    //     }
+    //     res.send(data)
+    //   })
 })
 
 app.get('/', (req, res) => { res.send("hello world") })

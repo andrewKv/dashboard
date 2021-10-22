@@ -5,7 +5,7 @@ import { TeamsContext } from "./Context"
 
 function TeamsMini() {
   const [errorMsg, setErrorMsg] = useState("");
-  const { currentTeam } = useContext(TeamsContext);
+  const { selectedTeam, changeSelectedTeam } = useContext(TeamsContext);
 
   let history = useHistory();
   function showTeams(){
@@ -15,7 +15,11 @@ function TeamsMini() {
   return (
     <div className="TeamsMini" onClick={showTeams}>
       <div className="ContainerTitle">Sport</div>
-      <h2> {currentTeam}</h2>
+      <h2> {selectedTeam}</h2>
+
+      <p>
+        Click for updates
+      </p>
 
       <p>{errorMsg}</p>
 

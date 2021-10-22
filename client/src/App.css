@@ -113,6 +113,13 @@ input::placeholder{
   margin-bottom: 40px;
 }
 
+.MainTitle.NewsTitle{
+  text-align: left;
+    margin: 2% 2% 5% 2%;
+    font-size: 2.5em;
+  
+}
+
 .News {
   color: aliceblue;
   font-family: 'Times New Roman', Times, serif;
@@ -137,8 +144,10 @@ input::placeholder{
   padding: 5px;
   margin-left: 5%;
   margin-right: 5%;
+  margin-top: 3em;
   overflow: auto;
-  max-height: 400px;
+  font-size:20px;
+  max-height: 30em;
 }
 
 .NewsImageContainer {
@@ -147,12 +156,32 @@ input::placeholder{
   margin-right: 25%;
 }
 
-.NewsHeadline {
-  margin: 100px 0px;
-  font-size: 2.5em;
-}
 
 /***************************************News********************************/
+
+/***************************************Teams********************************/
+Input.TeamInput{
+  justify-content: center;
+  margin-left: 50rem;
+    margin-top: 3rem;
+}
+
+.TeamsBeaten{
+  color: aliceblue;
+  list-style-type: none;
+  font-size: 20px;
+  margin-left: 10rem;
+}
+.TeamsBeaten.Header{
+  text-align: left;
+  margin-top: 5rem;
+  padding-left: 40px;
+  font-size: 25px;
+}
+.TeamItem{
+  margin:5px;
+}
+/***************************************Teams********************************/
 
 .ContainerTitle {
   font-size: 30px;

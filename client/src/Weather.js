@@ -7,7 +7,7 @@ function Weather() {
   const [temp, setTemp] = useState("");
   const [city, setCity] = useState("");
   const [weatherIcon, setWeatherIcon] = useState("");
-  const [state, setState] = useState({});
+  const setState = useState({});
 
   // Could support more weather types with icons from 
   // https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2
@@ -66,9 +66,6 @@ function Weather() {
   // Probably a better way to do this
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(getWeather, positionError, locationOptions);
-    return ()=>{
-      setState({});
-    }
   }, []);
 
   return (
