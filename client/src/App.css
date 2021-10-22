@@ -46,6 +46,9 @@ input::placeholder{
   font-weight: 600;
   font-size: large;
 }
+.Login.Button.Signup{
+  margin-top: 15em;
+}
 
 
 .Login {

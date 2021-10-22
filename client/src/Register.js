@@ -53,12 +53,16 @@ function Register() {
 
   return (
     <div className="Login">
+      <h1 className="MainTitle">Dev Challenge</h1>
+      <div className="RowWrapper">
       <input type="text" placeholder="UserName..." onChange={(e)=> {setUsername(e.target.value)}}/>
       <input type="text" placeholder="Email..." onChange={(e)=> {setEmail(e.target.value)}}/>
+      </div>
+      <div className="RowWrapper">
       <input type="text" placeholder="Password..." onChange={(e)=> {setPassword(e.target.value)}}/>
       <input type="text" placeholder="Confirm Password..." onChange={(e)=> {setpasswordConfirm(e.target.value)}}/>
-
-      <Button className="submit" size="lg" type="submit" onClick={handleSubmit}>
+      </div>
+      <Button className="Login Button Signup" size="lg" type="submit" onClick={handleSubmit}>
         Register
       </Button>
 
