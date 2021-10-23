@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Redirect } from 'react-router';
 import { LoginContext, UsernameContext } from "./Context";
 import Weather from "./Weather";
@@ -12,13 +12,15 @@ function Dashboard() {
   const { user, changeUserName } = useContext(UsernameContext);
   // handle refresh and auth
   const pageVisited = sessionStorage.getItem("authorised") ? true : false
+  
+  useEffect(() => {
+    if (user === "") {
+      changeUserName(sessionStorage.getItem("username"))
+    }
+  }, []);
 
   if (!loggedIn && !pageVisited) {
     return <Redirect to="/"></Redirect>
-  }
-
-  if (user === "") {
-    changeUserName(sessionStorage.getItem("username"))
   }
 
   function logOut() {

@@ -3,7 +3,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-input[type=text], select, textarea {
+input, select, textarea {
   color: aliceblue;
   outline: 0;
   font-size: 25px;
@@ -182,6 +182,36 @@ Input.TeamInput{
   margin:5px;
 }
 /***************************************Teams********************************/
+
+/***************************************Photos********************************/
+
+.Photo.Add  {
+  grid-area: photoAdd;
+}
+
+.Photo.Item  {
+  grid-area: photo;
+}
+
+.PhotoMainGrid {
+  display: grid;
+  justify-content: center;
+  grid-template: 'photoAdd photo photo' 'photo photo photo';
+  grid-gap: 100px;
+  padding: 10px;
+}
+
+.PhotoMainGrid>div {
+  content: url(Assets/Add_picture.png);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+
+
+
+/***************************************Photos********************************/
 
 .ContainerTitle {
   font-size: 30px;

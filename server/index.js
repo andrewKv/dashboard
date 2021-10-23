@@ -118,15 +118,35 @@ app.get('/TeamFile', (req, res) => {
         .catch((error) => {
             res.send({ error: error })
         });
+})
 
-
-
-    // fs.readFile('../client/src/Assets/teams.csv', 'utf8' , (err, data) => {
-    //     if (err) {
-    //         res.send({ error: err })
-    //     }
-    //     res.send(data)
-    //   })
+// app.get('/RecentPhotos', (req, res) => {
+//     const encryptedPassword = encrypt(password);
+//     dashDB.query("SELECT 
+//         [username, encryptedPassword.password, encryptedPassword.initial, email],
+//         (error, result) => {
+//             if (error) {
+//                 res.send({ error: error })
+//             }
+//             if (result) {
+//                 res.send(result)
+//             }
+//         }
+//     );
+// })
+app.post('/PostImage', (req, res) => {
+    console.log(req.body)
+    dashDB.query("INSERT INTO dashboarddb.photos (user, photolink) VALUES (?,?)",
+        [req.body.username, req.body.fileName],
+        (error, result) => {
+            if (error) {
+                res.send({ error: error })
+            }
+            if (result) {
+                res.send(result)
+            }
+        }
+    );
 })
 
 app.get('/', (req, res) => { res.send("hello world") })

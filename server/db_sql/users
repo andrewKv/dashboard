@@ -10,3 +10,14 @@ CREATE TABLE `users` (
 
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password1';
 flush privileges
+
+CREATE TABLE `photos` (
+  `photoid` int NOT NULL AUTO_INCREMENT,
+  `user` varchar(45) NOT NULL,
+  `photolink` varchar(255) NOT NULL,
+  PRIMARY KEY (`photoid`),
+  UNIQUE KEY `photolink_UNIQUE` (`photolink`),
+  KEY `user_idx` (`user`),
+  CONSTRAINT `user` FOREIGN KEY (`user`) REFERENCES `users` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+SELECT * FROM dashboarddb.photos;

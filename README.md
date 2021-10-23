@@ -18,12 +18,12 @@ Components
     5.1. Weather mini x 
 
 6. News 5 x
-7. Sport 10 
-Mini - select your team
-team state 
-
+7. Sport 10 x
 
 8. Photo gallery 10
+    main photo page
+    populate mini from main, empty if none
+
 9. Task list (assign complete) 10
 10. Favourite warmer 15
 
