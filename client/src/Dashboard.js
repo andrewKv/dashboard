@@ -14,7 +14,7 @@ function Dashboard() {
   const { user, changeUserName } = useContext(UsernameContext);
   // handle refresh and auth
   const pageVisited = sessionStorage.getItem("authorised") ? true : false
-  
+
   useEffect(() => {
     if (user === "") {
       changeUserName(sessionStorage.getItem("username"))
@@ -33,11 +33,11 @@ function Dashboard() {
 
   return (
     <div className="Dashboard">
-      
-        <a className="Logout" href='#' onClick={logOut}>Log Out</a>
+
+      <a className="Logout" href='#' onClick={logOut}>Log Out</a>
 
       <div className="MainTitle">Good Day {user}</div>
-      
+
       <div className="MainGrid">
         <div className="item1">
           <Weather />
@@ -49,11 +49,14 @@ function Dashboard() {
           <TeamsMini />
         </div>
         <div className="item4">
-        <PhotosMini />
+          <PhotosMini />
         </div>
-        <div className="item5"><TaskListMini /></div>
-        
-        <div className="item6"><ClothesMini /></div>
+        <div className="item5">
+          <TaskListMini />
+        </div>
+        <div className="item6">
+          <ClothesMini />
+        </div>
       </div>
 
     </div>

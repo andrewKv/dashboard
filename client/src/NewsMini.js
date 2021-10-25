@@ -8,7 +8,6 @@ function NewsMini() {
   const [errorMsg, setErrorMsg] = useState("");
   const [headline, setHeadline] = useState("");
   const [desc, setDesc] = useState("");
-  const [setState] = useState({});
 
 
   const { changeNewsObj  } = useContext(NewsContext);
@@ -32,9 +31,6 @@ function NewsMini() {
         changeNewsObj({link: topItem.link._text, headline: topItem.title._cdata})
       }
     })
-    return () => {
-      setState({});
-    }
   }, []);
 
   return (

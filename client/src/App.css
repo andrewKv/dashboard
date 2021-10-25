@@ -83,7 +83,7 @@ input::placeholder {
 /***************************************Weather********************************/
 
 .TemperatureLabel {
-  width: 84%;
+  width: 90%;
   position: relative;
   bottom: 90px;
   text-align: right;
@@ -99,8 +99,8 @@ input::placeholder {
   position: relative;
   height: 86px;
   width: 110px;
-  left: 10px;
-  top: 10px;
+  left: 15px;
+  top: 15px;
 }
 
 .WeatherIcon.Clouds {

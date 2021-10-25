@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useEffect, useContext, Item  } from "react";
+import React, { useState, useEffect, useContext  } from "react";
 import { useHistory } from "react-router-dom";
 import { TeamsContext } from "./Context";
 import Axios from "axios";

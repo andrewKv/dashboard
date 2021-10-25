@@ -35,7 +35,9 @@ function Register() {
           let userMessage = "Registration Error"
           switch (response.data.error.code) {
             case "ER_DUP_ENTRY":
-              userMessage = "Username already in use!"
+              userMessage += " Username already in use!"
+            default:
+              userMessage += response.data.error.code
           }
           setErrorMsg(userMessage)
         }

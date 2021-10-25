@@ -14,7 +14,6 @@ function App() {
     const [user, changeUserName] = useState("");
     const [newsObj, changeNewsObj] = useState({});
     const [selectedTeam, changeSelectedTeam] = useState({ name: "Select a team", message: "" });
-    const [setState] = useState({});
 
     return (
         <Router>

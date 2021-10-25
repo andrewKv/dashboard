@@ -7,7 +7,6 @@ function Weather() {
   const [temp, setTemp] = useState("");
   const [city, setCity] = useState("");
   const [weatherIcon, setWeatherIcon] = useState("");
-  const setState = useState({});
 
   // Could support more weather types with icons from 
   // https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2
@@ -28,15 +27,15 @@ function Weather() {
     }
     setWeatherIcon("WeatherIcon " + weatherIcon)
     setCity(weather.name)
-    setTemp(Math.ceil(weather.main.temp))
+    // Given in kelvin
+    setTemp(Math.ceil(weather.main.temp - 273.15))
 
     // store in cache for api rate limits
     sessionStorage.setItem("weatherInfo", JSON.stringify({'symbol': weatherIcon, 'city': weather.name, 'degrees' : weather.main.temp}))
   }
 
   function getWeather(pos) {
-        
-    Axios.request('api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=da7b240d934300d1d951cc7e2fa46339').then((response) => {
+    Axios.request(`https://api.openweathermap.org/data/2.5/weather?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&APPID=da7b240d934300d1d951cc7e2fa46339`).then((response) => {
       if (response.data){
         showData(response.data)
       

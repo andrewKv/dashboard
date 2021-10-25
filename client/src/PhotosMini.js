@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { UsernameContext, PhotoContext } from "./Context";
+import { UsernameContext } from "./Context";
 import Axios from "axios";
 
 function PhotosMini() {
