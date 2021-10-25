@@ -35,26 +35,8 @@ function Weather() {
   }
 
   function getWeather(pos) {
-    const secretKey = '58ba6f2f01085460e062d509850f68da'
-
-    const weatherOptions = {
-      method: 'GET',
-      url: 'https://community-open-weather-map.p.rapidapi.com/weather',
-      params: {
-        lat: pos.coords.latitude,
-        lon: pos.coords.longitude,
-        id: '2172797',
-        lang: 'null',
-        units: 'metric',
-        mode: 'json'
-      },
-      headers: {
-        'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
-        'x-rapidapi-key': secretKey
-      }
-    };
-    
-    Axios.request(weatherOptions).then((response) => {
+        
+    Axios.request('api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=da7b240d934300d1d951cc7e2fa46339').then((response) => {
       if (response.data){
         showData(response.data)
       

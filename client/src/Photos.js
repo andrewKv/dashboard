@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState, useEffect, useContext, Item } from "react";
 import { useHistory } from "react-router-dom";
-import { UsernameContext, PhotoContext } from "./Context";
+import { UsernameContext } from "./Context";
 import Axios from "axios";
 
 function Photos() {
@@ -74,11 +74,6 @@ function Photos() {
     history.push('/Dashboard')
   }
 
-
-  // on click add upload picture 
-  // resize and show 6 most recent pictures from query
-  // store older pictures in database
-  // list of 4 recent pictures in photo context
   return (
     <div className="Photos">
       <div className="MainTitle" onClick={homeRequest}>Photos</div>

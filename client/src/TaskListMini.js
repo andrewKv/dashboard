@@ -6,7 +6,7 @@ import Axios from "axios";
 
 function TaskListMini() {
   const [errorMsg, setErrorMsg] = useState("");
-  const { user, changeUserName } = useContext(UsernameContext);
+  let { user, changeUserName } = useContext(UsernameContext);
   let [tasks, setTaskList] = useState([])
   let history = useHistory();
 
@@ -17,12 +17,13 @@ function TaskListMini() {
 
   useEffect(() => {
     if (user === "") {
-      changeUserName(sessionStorage.getItem("username"))
+      user = (sessionStorage.getItem("username"))
     }
     getTasksMini()
   }, []);
 
   function getTasksMini() {
+    console.log(user)
     Axios.post("http://localhost:3001/GetTasks", {
       username: user
     }).then((response) => {
@@ -34,7 +35,7 @@ function TaskListMini() {
         // Show 3 tasks
         let taskListElements = (taskData.map((task) =>
           <div className="Task Item" key={task.taskid}>
-            <div className="Input TaskInput">{task.description === "" ? "Task " + task.taskid : task.description} </div> 
+            <input className="Input TaskInput Mini" readOnly type="text" data-id={task.taskid} placeholder={task.description === "" ? "Task " + task.taskid : task.description}/>
             <input type ="checkbox" readOnly className="TaskStatus" checked={task.status} />
           </div>
         ))        

@@ -10,15 +10,12 @@ npm i
 npm run dev
 
 # TODO
-Add picture to signup
-Style piechart
-Style tasklist mini
 fix weather
 fix warnings
 
 
 # Bugs
-Refresh loses page context
+- Refresh loses page context
+- Redirect image upload to public folder with multer
+- Forbidden access to news image, download and load image?
 
-Forbidden access to news image, download and load image?
-Export get function for dashboard and internal page

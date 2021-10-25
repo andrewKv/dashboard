@@ -24,10 +24,10 @@ const dashDB = mysql.createConnection({
 });
 
 app.post('/Register', (req, res) => {
-    const { username, password, email } = req.body
+    const { username, password, email, photo } = req.body
     const encryptedPassword = encrypt(password);
-    dashDB.query("INSERT INTO dashboarddb.users (username, password, buffer, email) VALUES (?,?,?,?)",
-        [username, encryptedPassword.password, encryptedPassword.initial, email],
+    dashDB.query("INSERT INTO dashboarddb.users (username, password, buffer, email, photo) VALUES (?,?,?,?,?)",
+        [username, encryptedPassword.password, encryptedPassword.initial, email, photo],
         (error, result) => {
             if (error) {
                 res.send({ error: error })
@@ -139,7 +139,6 @@ app.post('/DeleteImage', (req, res) => {
     [req.body.username, req.body.photo],
     (error, result) => {
         if (error) {
-            console.log(error)
             res.send({ error: error })
         }
         if (result) {

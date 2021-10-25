@@ -47,6 +47,7 @@ function TaskList() {
           <div className="Task Item" key={task.taskid}>
             <input className="Input TaskInput" type="text" data-id={task.taskid} placeholder={task.description === "" ? "Task " + task.taskid : task.description} onChange={(e) => setTaskValue(updateDescription(e))} onBlur={(e) => { updateTask(e) }} />
             <input className="TaskStatus" type="checkbox" data-id={task.taskid} checked={task.status} onChange={(e) => { changeStatus(e) }} />
+            <label htmlFor="TaskStatus"></label>
           </div>
         ))
       }
@@ -54,7 +55,12 @@ function TaskList() {
   }
 
   function updateDescription(e){
+    let taskId = parseInt((e.target.attributes[2].value))
     taskValue = (e.target.value)
+    let selectedObj = taskObj.find(obj => {
+      return obj.id === taskId
+    })
+    selectedObj.description = taskValue
   }
 
   function changeStatus(e) {
@@ -72,7 +78,6 @@ function TaskList() {
     let selectedObj = taskObj.find(obj => {
       return obj.id === taskId
     })
-    selectedObj.description = taskValue
 
     Axios.post("http://localhost:3001/UpdateTask", {
       status: selectedObj.status,
@@ -109,9 +114,9 @@ function TaskList() {
   return (
     <div className="TaskList">
       <div className="MainTitle" onClick={homeRequest}>Tasks</div>
-      <ul className="Tasks">
-        <button className="SmallAdd" onClick={(e) => { addTask(e) }} />
+      <ul className="Tasks Centered">
         {taskElements}
+        <button className="SmallAdd" onClick={(e) => { addTask(e) }} />
       </ul>
 
       <p>{errorMsg}</p>
