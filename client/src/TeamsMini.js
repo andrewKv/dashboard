@@ -15,10 +15,10 @@ function TeamsMini() {
   return (
     <div className="TeamsMini" onClick={showTeams}>
       <div className="ContainerTitle">Sport</div>
-      <h2> {selectedTeam}</h2>
+      <h2> {selectedTeam.name}</h2>
 
       <p>
-        Click for updates
+        {selectedTeam.message}
       </p>
 
       <p>{errorMsg}</p>

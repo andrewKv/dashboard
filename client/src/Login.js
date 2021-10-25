@@ -56,7 +56,7 @@ function Login() {
     <div className="Login">
       <h1 className="MainTitle">Dev Challenge</h1>
       <div className="RowWrapper">
-        <input type="text" placeholder="UserName..." onChange={(e) => { setUsername(e.target.value) }} />
+        <input type="text" placeholder="Username..." onChange={(e) => { setUsername(e.target.value) }} />
         <input type="password" placeholder="Password..." onChange={(e) => { setPassword(e.target.value) }} />
       </div>
       <Button className="Login Button" onClick={handleSubmit} size="lg" type="submit">

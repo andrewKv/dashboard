@@ -21,14 +21,21 @@ Components
 7. Sport 10 x
 
 8. Photo gallery 10
-    main photo page
-    populate mini from main, empty if none
+    Style photos x 
+    cache weather x
 
 9. Task list (assign complete) 10
 10. Favourite warmer 15
 
+Finish task list
+finish pie chart
+add signup photo
+fix weather
+fix warnings
+
+
 # Bugs
-Multiple rendering/memory leak: complicated - look into if time
-- refresh news removes context
+Refresh loses page context
 
 Forbidden access to news image, download and load image?
+Export get function for dashboard and internal page

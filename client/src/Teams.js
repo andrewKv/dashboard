@@ -31,10 +31,11 @@ function Teams() {
   }, []);
 
   function searchTeam(inputTeam) {
-    changeSelectedTeam(inputTeam)
     let teamsBeat = []
     // Search for beaten
     if (teamList.length) {
+      
+
       for (const team in teamList) {
         // if this team is the home team and they won, or if away and won
         if ((teamList[team].HomeTeam === inputTeam && teamList[team].FTR === "H") || 
@@ -45,8 +46,10 @@ function Teams() {
       }
     }
     let uniqueTeamsBeaten = [...new Set(teamsBeat)];
+    changeSelectedTeam({name: inputTeam, message: "Have beaten "+uniqueTeamsBeaten.length+" teams"})
     // Could include score, duplicate issue? 
     setTeamsBeaten(uniqueTeamsBeaten.map((t) => <li className="TeamItem" key={uniqueTeamsBeaten.indexOf(t)}> {t} </li>))
+    
   }
   
 

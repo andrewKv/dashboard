@@ -29,10 +29,13 @@ function Weather() {
     setWeatherIcon("WeatherIcon " + weatherIcon)
     setCity(weather.name)
     setTemp(Math.ceil(weather.main.temp))
+
+    // store in cache for api rate limits
+    sessionStorage.setItem("weatherInfo", JSON.stringify({'symbol': weatherIcon, 'city': weather.name, 'degrees' : weather.main.temp}))
   }
 
   function getWeather(pos) {
-    const secretKey = 'ca2477500cmshbb2e93507cdecfdp185023jsn576bc71ae93f'
+    const secretKey = '58ba6f2f01085460e062d509850f68da'
 
     const weatherOptions = {
       method: 'GET',
@@ -50,11 +53,22 @@ function Weather() {
         'x-rapidapi-key': secretKey
       }
     };
-
+    
     Axios.request(weatherOptions).then((response) => {
-      showData(response.data)
+      if (response.data){
+        showData(response.data)
+      
+      }
     }).catch((error) => {
+      let lastWeather = JSON.parse(sessionStorage.getItem("weatherInfo"))
+      if (lastWeather){
+        setWeatherIcon("WeatherIcon " + lastWeather.symbol)
+        setCity(lastWeather.city)
+        setTemp(Math.ceil(lastWeather.degrees))
+      }
+      else{
       setErrorMsg("Error retrieving weather: ", error);
+      }
     });
   }
 

@@ -12,31 +12,36 @@ input, select, textarea {
   margin: 0px 50px;
   background: transparent;
 }
+
 input:focus {
   border-color: #FFE65E;
 }
-input::placeholder{
+
+input::placeholder {
   color: aliceblue;
 }
 
-.RowWrapper{
- margin-top: 10em;
+.RowWrapper {
+  margin-top: 10em;
 }
-.SignupWrapper{
+
+.SignupWrapper {
   color: aliceblue;
   justify-content: center;
   font-size: 30px;
   position: relative;
   top: 25px;
 }
-.SignUp{
+
+.SignUp {
   color: #FFE65E;
 }
-.SignUp:focus{
+
+.SignUp:focus {
   color: aliceblue;
 }
 
-.Login.Button{
+.Login.Button {
   border-radius: 30px;
   padding: 20px 100px;
   margin-top: 25em;
@@ -46,10 +51,10 @@ input::placeholder{
   font-weight: 600;
   font-size: large;
 }
-.Login.Button.Signup{
+
+.Login.Button.Signup {
   margin-top: 15em;
 }
-
 
 .Login {
   padding: 60px 0;
@@ -113,11 +118,10 @@ input::placeholder{
   margin-bottom: 40px;
 }
 
-.MainTitle.NewsTitle{
+.MainTitle.NewsTitle {
   text-align: left;
-    margin: 2% 2% 5% 2%;
-    font-size: 2.5em;
-  
+  margin: 2% 2% 5% 2%;
+  font-size: 2.5em;
 }
 
 .News {
@@ -146,7 +150,7 @@ input::placeholder{
   margin-right: 5%;
   margin-top: 3em;
   overflow: auto;
-  font-size:20px;
+  font-size: 20px;
   max-height: 30em;
 }
 
@@ -156,62 +160,148 @@ input::placeholder{
   margin-right: 25%;
 }
 
-
 /***************************************News********************************/
 
 /***************************************Teams********************************/
-Input.TeamInput{
+
+Input.TeamInput {
   justify-content: center;
   margin-left: 50rem;
-    margin-top: 3rem;
+  margin-top: 3rem;
 }
 
-.TeamsBeaten{
+.TeamsBeaten {
   color: aliceblue;
   list-style-type: none;
   font-size: 20px;
   margin-left: 10rem;
 }
-.TeamsBeaten.Header{
+
+.TeamsBeaten.Header {
   text-align: left;
   margin-top: 5rem;
   padding-left: 40px;
   font-size: 25px;
 }
-.TeamItem{
-  margin:5px;
+
+.TeamItem {
+  margin: 5px;
 }
+
 /***************************************Teams********************************/
 
 /***************************************Photos********************************/
 
-.Photo.Add  {
-  grid-area: photoAdd;
+.AddIcon {
+  width: 280px;
+  height: 280px;
+  content: url(Assets/Plus_button.png);
+  border-style: solid;
+  border-width: 5px;
+  background-color: #788BAA;
+  border-color: #FFE65E;
+  color: black;
+  text-align: center;
+  cursor: hand;
 }
 
-.Photo.Item  {
-  grid-area: photo;
+.PhotoAdd {
+  width: 240px;
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+}
+
+label span input {
+  z-index: 999;
+  line-height: 0;
+  font-size: 50px;
+  position: absolute;
+  top: -2px;
+  left: -700px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -ms-filter: "alpha(opacity=0)";
+  margin: 0;
+  padding: 0;
+}
+
+.ImageDelete {
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin: 30px 50px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.ImageUpload>input {
+  display: none;
+}
+
+.Photo.Image {
+  width: 280px;
+  height: 280px;
+}
+
+.Photo.Item {
+  flex: 1;
+  margin: 20px 30px;
+}
+
+.Photo.Item1 {
+  flex: 1;
+  margin: 20px 30px;
+  width: 280px;
+  height: 280px;
+}
+
+.Photo.Item.Mini {
+  flex: 1;
+  margin: 0px 20px 0px 0px;
+  width: 120px;
+  height: 75px;
+}
+
+.PhotoMainGrid.Mini {
+  grid-gap: 10px;
+  padding-top: 20px;
+  margin: 0px 15px 0px 30px;
+  margin-block-start: 0px;
+  padding-inline-start: 0px;
 }
 
 .PhotoMainGrid {
-  display: grid;
+  display: flex;
+  margin: 0px 23rem;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
-  grid-template: 'photoAdd photo photo' 'photo photo photo';
-  grid-gap: 100px;
-  padding: 10px;
+  grid-gap: 50px;
 }
-
-.PhotoMainGrid>div {
-  content: url(Assets/Add_picture.png);
-  text-align: center;
-  padding: 20px 0;
-  font-size: 30px;
-}
-
-
-
 
 /***************************************Photos********************************/
+
+/***************************************Tasks********************************/
+.TaskAdd {
+  width: 240px;
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+}
+.SmallAdd {
+  width: 68px;
+  height: 68px;
+  background: url(Assets/Plus_button_small.png);
+  border:none
+}
+
+/***************************************Tasks********************************/
 
 .ContainerTitle {
   font-size: 30px;
@@ -241,7 +331,7 @@ Input.TeamInput{
   grid-area: clothes;
 }
 
-.Logout{
+.Logout {
   font-size: 1.5em;
   padding: 10px;
   position: relative;
@@ -251,7 +341,7 @@ Input.TeamInput{
   background-color: #C1D3F2;
   border-color: #FFE65E;
   text-decoration: none;
-  color:black
+  color: black
 }
 
 .MainGrid {

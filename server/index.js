@@ -10,6 +10,7 @@ const cheerio = require('cheerio');
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 const csv = require('csvtojson')
+const multer = require('multer')
 
 
 app.use(express.json());
@@ -120,33 +121,104 @@ app.get('/TeamFile', (req, res) => {
         });
 })
 
-// app.get('/RecentPhotos', (req, res) => {
-//     const encryptedPassword = encrypt(password);
-//     dashDB.query("SELECT 
-//         [username, encryptedPassword.password, encryptedPassword.initial, email],
-//         (error, result) => {
-//             if (error) {
-//                 res.send({ error: error })
-//             }
-//             if (result) {
-//                 res.send(result)
-//             }
-//         }
-//     );
-// })
-app.post('/PostImage', (req, res) => {
-    console.log(req.body)
-    dashDB.query("INSERT INTO dashboarddb.photos (user, photolink) VALUES (?,?)",
-        [req.body.username, req.body.fileName],
-        (error, result) => {
+app.post('/RecentPhotos', (req, res) => {
+    dashDB.query("SELECT photolink FROM dashboarddb.photos WHERE user = ? order by created desc limit 5",
+    [req.body.username],
+    (error, result) => {
             if (error) {
                 res.send({ error: error })
             }
             if (result) {
                 res.send(result)
             }
+        })
+})
+
+app.post('/DeleteImage', (req, res) => {
+    dashDB.query("DELETE FROM dashboarddb.photos WHERE user= ? AND photolink = ?",
+    [req.body.username, req.body.photo],
+    (error, result) => {
+        if (error) {
+            console.log(error)
+            res.send({ error: error })
+        }
+        if (result) {
+                res.send(result)
+            }
+        }
+        );
+})
+
+
+app.post('/PostImageDB', (req, res) => {
+    dashDB.query("INSERT INTO dashboarddb.photos (user, photolink) VALUES (?,?)",
+    [req.body.username, req.body.fileName],
+    (error, result) => {
+        if (error) {
+            res.send({ error: error })
+        }
+        if (result) {
+                res.send(result)
+            }
+        }
+        );
+})
+
+app.post('/PostTask', (req, res) => {
+    dashDB.query("INSERT INTO dashboarddb.tasks (status, description,user) VALUES (?,?,?)",
+    [req.body.status, req.body.description, req.body.username],
+    (error, result) => {
+        if (error) {
+            res.send({ error: error })
+        }
+        if (result) {
+                res.send(result)
+            }
         }
     );
+})
+
+app.post('/UpdateTask', (req, res) => {
+    dashDB.query("UPDATE dashboarddb.tasks SET status = ?, description= ? WHERE taskid = ?",
+    [req.body.status, req.body.description, req.body.taskId],
+    (error, result) => {
+        if (error) {
+            res.send({ error: error })
+        }
+        if (result) {
+                res.send(result)
+            }
+        }
+    );
+})
+
+app.post('/GetTasks', (req, res) => {
+    dashDB.query("SELECT taskid, description, status FROM dashboarddb.tasks WHERE user = ? order by taskid",
+    [req.body.username],
+    (error, result) => {
+            if (error) {
+                res.send({ error: error })
+            }
+            if (result) {
+                res.send(result)
+            }
+        })
+})
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, "public")
+    },
+    filename: function (req, file, cb) {
+        const parts = file.mimetype.split("/");
+        cb(null, `${file.fieldname}`)
+    }
+})
+
+const upload = multer({storage});
+
+app.post("/SaveImage", upload.single("image"), (req, res) => {
+    res.status(201).json({path: req.file.filename});
 })
 
 app.get('/', (req, res) => { res.send("hello world") })

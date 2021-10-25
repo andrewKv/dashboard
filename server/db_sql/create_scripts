@@ -15,9 +15,20 @@ CREATE TABLE `photos` (
   `photoid` int NOT NULL AUTO_INCREMENT,
   `user` varchar(45) NOT NULL,
   `photolink` varchar(255) NOT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`photoid`),
   UNIQUE KEY `photolink_UNIQUE` (`photolink`),
   KEY `user_idx` (`user`),
   CONSTRAINT `user` FOREIGN KEY (`user`) REFERENCES `users` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-SELECT * FROM dashboarddb.photos;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `tasks` (
+  `taskid` int NOT NULL AUTO_INCREMENT,
+  `description` varchar(45) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `user` varchar(45) NOT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`taskid`),
+  KEY `user_idx` (`user`),
+  CONSTRAINT `user_fk` FOREIGN KEY (`user`) REFERENCES `users` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

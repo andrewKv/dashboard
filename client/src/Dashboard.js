@@ -6,6 +6,8 @@ import Weather from "./Weather";
 import NewsMini from './NewsMini';
 import TeamsMini from './TeamsMini';
 import PhotosMini from './PhotosMini';
+import TaskListMini from './TaskListMini';
+import ClothesMini from './ClothesMini';
 
 function Dashboard() {
   const { loggedIn, changeLoggedIn } = useContext(LoginContext);
@@ -49,9 +51,9 @@ function Dashboard() {
         <div className="item4">
         <PhotosMini />
         </div>
+        <div className="item5"><TaskListMini /></div>
         
-        <div className="item5">Tasks</div>
-        <div className="item6">Clothes</div>
+        <div className="item6"><ClothesMini /></div>
       </div>
 
     </div>

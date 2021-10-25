@@ -4,25 +4,17 @@ import Dashboard from "./Dashboard";
 import News from "./News";
 import Teams from "./Teams";
 import Photos from "./Photos";
+import TaskList from "./TaskList"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { LoginContext, UsernameContext, NewsContext, TeamsContext, PhotoContext } from "./Context"
+import { LoginContext, UsernameContext, NewsContext, TeamsContext } from "./Context"
 import { useState, useEffect } from "react";
 
 function App() {
     const [loggedIn, changeLoggedIn] = useState(false);
     const [user, changeUserName] = useState("");
     const [newsObj, changeNewsObj] = useState({});
-    const [photoObj, changePhotoObj] = useState({});
-    const [selectedTeam, changeSelectedTeam] = useState("Select a team");
-    const [state, setState] = useState({});
-
-
-    // For console error
-    useEffect(() => {
-        return () => {
-            setState({});
-        }
-    }, [])
+    const [selectedTeam, changeSelectedTeam] = useState({ name: "Select a team", message: "" });
+    const [setState] = useState({});
 
     return (
         <Router>
@@ -34,13 +26,12 @@ function App() {
 
                         <NewsContext.Provider value={{ newsObj, changeNewsObj }}>
                             <TeamsContext.Provider value={{ selectedTeam, changeSelectedTeam }}>
-                                <PhotoContext.Provider value={{ newsObj, changeNewsObj }}>
                                     <Route exact path="/Dashboard" component={Dashboard} />
                                     <Route exact path="/Photos" component={Photos} />
-                                </PhotoContext.Provider>
-                                <Route exact path="/Teams" component={Teams} />
+                                    <Route exact path="/Teams" component={Teams} />
+                                    <Route exact path="/News" component={News} />
+                                    <Route exact path="/Tasks" component={TaskList} />
                             </TeamsContext.Provider>
-                                <Route exact path="/News" component={News} />
                         </NewsContext.Provider>
                     </UsernameContext.Provider>
                 </LoginContext.Provider>
