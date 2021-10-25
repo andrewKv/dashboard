@@ -305,9 +305,8 @@ label span input {
 
 
 /***************************************Clothes********************************/
-svg{
-  width: 80%;
-  height: 80%;
+.ClothesPie{
+  width: 50%;
 }
 
 

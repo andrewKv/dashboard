@@ -70,10 +70,11 @@ function ClothesMini() {
   return (
     <div className="Clothes">
       <div className="ContainerTitle">Clothes</div>
-
-      <PieChart className="ClothesPie"
-        data={clothesObject}
+      <div className="ClothesPie">
+        <PieChart
+          data={clothesObject}
         />
+      </div>
       <p>{errorMsg}</p>
     </div>
 

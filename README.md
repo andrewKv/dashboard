@@ -1,32 +1,18 @@
-SIGNUP
-1. Sign up page 5
+# Run
+start client and server applications separatly:
 
-2. DB design 10
-    2.1. Post on register page x
-    2.2. Get on sign in page x
-Root Pass: password1
+cd dashboard/client
+npm i
+npm start
 
-DASHBOARD
-3. Visual Design implementation 5 
-4. Welcome message ‘Good day Swapnil’ 2 x
+cd dashboard/server
+npm i
+npm run dev
 
-Components
-5. Weather using geolocation 7 x
-    5.1. Weather mini x 
-
-6. News 5 x
-7. Sport 10 x
-
-8. Photo gallery 10
-    Style photos x 
-    cache weather x
-
-9. Task list (assign complete) 10
-10. Favourite warmer 15
-
-Finish task list
-finish pie chart
-add signup photo
+# TODO
+Add picture to signup
+Style piechart
+Style tasklist mini
 fix weather
 fix warnings
 
