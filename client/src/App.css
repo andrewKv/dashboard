@@ -199,13 +199,21 @@ Input.TeamInput {
 
 /***************************************Photos********************************/
 
-.AddIcon .Hide {
+.AddIcon.Hide {
   display: none;
 }
 
-.PhotoAdd .User {
+.PhotoAdd.User {
   left: 150px;
   margin-bottom: 3em;
+}
+
+.AddIcon.User {
+  width: 140px;
+  height: 140px;
+  position: relative;
+  left: 130px;
+  bottom: 50px;
 }
 
 .AddIcon {
@@ -317,11 +325,12 @@ label span input {
 .Input.TaskInput.Mini {
   width: 100px;
   margin-left: 10px;
+  color: black;
 }
 
 .Input.TaskInput {
   flex: 1;
-  padding-top:20px
+  padding-top: 20px
 }
 
 .Tasks.Centered {

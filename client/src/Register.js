@@ -20,9 +20,8 @@ function Register() {
   let history = useHistory();
 
 
-  function handleSubmit(event) {
+  function handleSubmit() {
 
-    // photo add
     // check valid email
     if (username.length > 0 && password.length > 0 && password === passwordConfirm) {
       Axios.post("http://localhost:3001/Register", {
@@ -62,6 +61,13 @@ function Register() {
     setAddVisible(false)
   }
 
+  function setPhotoIcon(){
+    if (addVisible){
+      return "AddIcon User"
+    }
+    return "AddIcon Hide"
+  }
+
   return (
     <div className="Login">
       <h1 className="MainTitle">Dev Challenge</h1>
@@ -73,9 +79,8 @@ function Register() {
         <input type="text" placeholder="Password..." onChange={(e) => { setPassword(e.target.value) }} />
         <input type="text" placeholder="Confirm Password..." onChange={(e) => { setpasswordConfirm(e.target.value) }} />
       </div>
-
-      <label className={"AddIcon" + addVisible ? "" : " hide"}>
-        <span className="PhotoAdd User">
+      <label className={setPhotoIcon()}>
+        <span>
           <input onChange={(e) => { changePhoto(e) }} type="file" accept="image/*" name="image" />
           <img className="PhotoAdd User" src={process.env.PUBLIC_URL + userPhoto} ></img>
         </span>
