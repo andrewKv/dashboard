@@ -1,8 +1,5 @@
 SIGNUP
 1. Sign up page 5
-    1.1. Page routing   x
-    1.2. Register page  x
-    1.3. Add picture
 
 2. DB design 10
     2.1. Post on register page x
