@@ -10,11 +10,9 @@ npm i
 npm run dev
 
 # TODO
-fix weather
 
 
 # Bugs
 - Refresh loses page context
 - Redirect image upload to public folder with multer
 - Forbidden access to news image, download and load image?
-
