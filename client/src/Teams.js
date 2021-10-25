@@ -6,7 +6,7 @@ import Axios from "axios";
 
 function Teams() {
   const [errorMsg, setErrorMsg] = useState("");
-  const { currentTeam, changeSelectedTeam } = useContext(TeamsContext);
+  const { changeSelectedTeam } = useContext(TeamsContext);
   const [teamList, setTeamList] = useState([])
   const [teamsBeaten, setTeamsBeaten] = useState([])
   

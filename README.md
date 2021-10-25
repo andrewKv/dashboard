@@ -11,7 +11,6 @@ npm run dev
 
 # TODO
 fix weather
-fix warnings
 
 
 # Bugs

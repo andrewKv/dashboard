@@ -4,8 +4,8 @@ import { useHistory } from "react-router-dom";
 import { TeamsContext } from "./Context"
 
 function TeamsMini() {
-  const [errorMsg, setErrorMsg] = useState("");
-  const { selectedTeam, changeSelectedTeam } = useContext(TeamsContext);
+  const [errorMsg ] = useState("");
+  const { selectedTeam } = useContext(TeamsContext);
 
   let history = useHistory();
   function showTeams(){

@@ -2,12 +2,9 @@ import './App.css';
 import React, { useState, useEffect } from "react";
 import { clothes } from './Assets/clothes';
 import { PieChart } from 'react-minimal-pie-chart';
-import { generatePath } from 'react-router';
 
 function ClothesMini() {
-  const [errorMsg, setErrorMsg] = useState("");
   const [clothesObject, setClothesObject] = useState([]);
-  const setState = useState({});
 
   // Only run queries on page load rather than comnponent render
   // Probably a better way to do this
@@ -61,9 +58,9 @@ function ClothesMini() {
 
   }
 
-  const randomInt = (min, max) => {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  };
+  // const randomInt = (min, max) => {
+  //   return Math.floor(Math.random() * (max - min + 1)) + min;
+  // };
 
 
 
@@ -73,7 +70,6 @@ function ClothesMini() {
       <PieChart className="ClothesPie"
         data={clothesObject}
         />
-      <p>{errorMsg}</p>
     </div>
 
 

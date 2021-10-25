@@ -6,7 +6,6 @@ import Axios from "axios";
 
 
 function News() {
-  const setState = useState({});
   const [errorMsg, setErrorMsg] = useState("");
   const { newsObj, changeNewsObj } = useContext(NewsContext);
   let history = useHistory();

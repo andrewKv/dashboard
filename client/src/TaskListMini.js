@@ -6,7 +6,7 @@ import Axios from "axios";
 
 function TaskListMini() {
   const [errorMsg, setErrorMsg] = useState("");
-  let { user, changeUserName } = useContext(UsernameContext);
+  let { user } = useContext(UsernameContext);
   let [tasks, setTaskList] = useState([])
   let history = useHistory();
 
@@ -23,7 +23,6 @@ function TaskListMini() {
   }, []);
 
   function getTasksMini() {
-    console.log(user)
     Axios.post("http://localhost:3001/GetTasks", {
       username: user
     }).then((response) => {

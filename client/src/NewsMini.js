@@ -8,10 +8,10 @@ function NewsMini() {
   const [errorMsg, setErrorMsg] = useState("");
   const [headline, setHeadline] = useState("");
   const [desc, setDesc] = useState("");
-  const [state, setState] = useState({});
+  const [setState] = useState({});
 
 
-  const { newsObj, changeNewsObj  } = useContext(NewsContext);
+  const { changeNewsObj  } = useContext(NewsContext);
   
   // at click change route to news component, pass relevant data, link for mainstory
   let history = useHistory();

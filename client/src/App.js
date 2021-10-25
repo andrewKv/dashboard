@@ -7,7 +7,7 @@ import Photos from "./Photos";
 import TaskList from "./TaskList"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { LoginContext, UsernameContext, NewsContext, TeamsContext } from "./Context"
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function App() {
     const [loggedIn, changeLoggedIn] = useState(false);

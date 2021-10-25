@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express();
 const Axios = require('axios')
-const bodyParse = require('body-parser')
 const mysql = require("mysql");
 const cors = require("cors");
 const { encrypt, decrypt } = require("./EncryptionMethods");
