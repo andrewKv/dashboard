@@ -1,4 +1,4 @@
-import Login from "./Login";
+import PokemonCards from "./PokemonCards";
 import Register from "./Register";
 import Dashboard from "./Dashboard";
 import News from "./News";
@@ -20,7 +20,8 @@ function App() {
             <Switch>
                 <LoginContext.Provider value={{ loggedIn, changeLoggedIn }}>
                     <UsernameContext.Provider value={{ user, changeUserName }}>
-                        <Route exact path="/" component={Login} />
+                        {/* <Route exact path="/" component={Login} /> */}
+                        <Route exact path="/" component={PokemonCards} />
                         <Route exact path="/Register" component={Register} />
 
                         <NewsContext.Provider value={{ newsObj, changeNewsObj }}>

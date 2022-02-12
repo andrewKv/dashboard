@@ -54,7 +54,7 @@ function Login() {
 
   return (
     <div className="Login">
-      <h1 className="MainTitle">Dev Challenge</h1>
+      <h1 className="MainTitle">It's me annnndy</h1>
       <div className="RowWrapper">
         <input type="text" placeholder="Username..." onChange={(e) => { setUsername(e.target.value) }} />
         <input type="password" placeholder="Password..." onChange={(e) => { setPassword(e.target.value) }} />
