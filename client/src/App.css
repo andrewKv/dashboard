@@ -1,24 +1,25 @@
 body {
-  background: url(Assets/Background.png);
   font-family: Arial, Helvetica, sans-serif;
 }
 
-input, select, textarea {
-  color: aliceblue;
+input,
+select,
+textarea {
+  color: blue;
   outline: 0;
   font-size: 25px;
   border-width: 0 0 2px;
-  border-color: aliceblue;
+  border-color: blue;
   margin: 0px 50px;
   background: transparent;
 }
 
 input:focus {
-  border-color: #FFE65E;
+  border-color: #ffe65e;
 }
 
 input::placeholder {
-  color: aliceblue;
+  color: purple;
 }
 
 .RowWrapper {
@@ -26,7 +27,7 @@ input::placeholder {
 }
 
 .SignupWrapper {
-  color: aliceblue;
+  color: blue;
   justify-content: center;
   font-size: 30px;
   position: relative;
@@ -34,11 +35,11 @@ input::placeholder {
 }
 
 .SignUp {
-  color: #FFE65E;
+  color: #ffe65e;
 }
 
 .SignUp:focus {
-  color: aliceblue;
+  color: blue;
 }
 
 .Login.Button {
@@ -46,7 +47,7 @@ input::placeholder {
   padding: 20px 100px;
   margin-top: 25em;
   text-align: center;
-  background-color: #FFE65E;
+  background-color: #ffe65e;
   justify-content: center;
   font-weight: 600;
   font-size: large;
@@ -75,7 +76,7 @@ input::placeholder {
 
 .MainTitle {
   text-align: center;
-  color: aliceblue;
+  color: blue;
   font-size: 75px;
   margin-bottom: 75px;
 }
@@ -133,7 +134,7 @@ input::placeholder {
 
 .News {
   color: aliceblue;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .NewsDescriptionMini {
@@ -222,8 +223,8 @@ Input.TeamInput {
   content: url(Assets/Plus_button.png);
   border-style: solid;
   border-width: 5px;
-  background-color: #788BAA;
-  border-color: #FFE65E;
+  background-color: #788baa;
+  border-color: #ffe65e;
   color: black;
   text-align: center;
   cursor: hand;
@@ -264,7 +265,7 @@ label span input {
   text-align: center;
 }
 
-.ImageUpload>input {
+.ImageUpload > input {
   display: none;
 }
 
@@ -317,9 +318,9 @@ label span input {
   position: relative;
   width: 20px;
   height: 20px;
-  border: 1px solid #FFE65E;
+  border: 1px solid #ffe65e;
   content: "";
-  flex: 1
+  flex: 1;
 }
 
 .Input.TaskInput.Mini {
@@ -330,7 +331,7 @@ label span input {
 
 .Input.TaskInput {
   flex: 1;
-  padding-top: 20px
+  padding-top: 20px;
 }
 
 .Tasks.Centered {
@@ -411,23 +412,23 @@ label span input {
   top: 20px;
   border-style: solid;
   border-width: 5px;
-  background-color: #C1D3F2;
-  border-color: #FFE65E;
+  background-color: #c1d3f2;
+  border-color: #ffe65e;
   text-decoration: none;
-  color: black
+  color: black;
 }
 
 .MainGrid {
   display: grid;
   justify-content: center;
-  grid-template: 'weather news sport' 'photos tasks clothes';
+  grid-template: "weather news sport" "photos tasks clothes";
   grid-gap: 100px;
   padding: 10px;
 }
 
 /*Aspect ratio 421 x 309 */
 
-.MainGrid>div {
+.MainGrid > div {
   background-image: url(Assets/Container.png);
   background-size: cover;
   text-align: center;
@@ -435,4 +436,92 @@ label span input {
   width: 340px;
   padding: 20px 0;
   font-size: 30px;
+}
+
+/***************************************Pokemon********************************/
+* {
+  margin: 0 auto;
+  padding: 0;
+  background-color: #2196f3;
+}
+
+header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  background: #d53939;
+  color: #ffffff;
+}
+
+header h1 {
+  padding-top: 15px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style-type: none;
+}
+
+nav ul li a {
+  padding-right: 15px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: #622929;
+}
+
+.card {
+  height: 150px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  text-align: center;
+  width: 100px;
+  background: #39394a;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  border: 5px solid #9494a4;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.pokemonName {
+  text-transform: capitalize;
+  color: aliceblue;
+  text-align: center;
+  background: #39394a;
+  padding-top: 40px;
+  font-size: 14;
+}
+
+.pokemonImage {
+  width: 100%;
+  background: #39394a;
+}
+
+.columns {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+
+.pokemon-stats,
+.pokemon-name {
+  text-align: center;
+  background: #39394a;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto autongro;
+  padding: 10px;
+}
+
+.header-element {
+  background: #d53939;
+  border: 0.5px solid #d53939;
 }
