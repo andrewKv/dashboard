@@ -517,7 +517,7 @@ nav ul li a:hover {
 
 .grid-container {
   display: grid;
-  grid-template-columns: auto auto auto auto autongro;
+  grid-template-columns: auto auto auto auto auto;
   padding: 10px;
 }
 

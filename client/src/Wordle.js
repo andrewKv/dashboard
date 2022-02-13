@@ -42,7 +42,6 @@ export default function PokemonCards() {
           </ul>
         </nav>
       </header>
-      {/* @todo remove cards onClick */}
       <div className="grid-container">
         {pokemonList.length > 0 &&
           pokemonList.map((pokemon, index) => (
