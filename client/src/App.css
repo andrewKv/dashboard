@@ -525,3 +525,24 @@ nav ul li a:hover {
   background: #d53939;
   border: 0.5px solid #d53939;
 }
+/***************************************Wordle********************************/
+.card {
+  height: 80px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  text-align: center;
+  width: 80px;
+  background: rgba(245, 229, 229, 0.8);
+  border-radius: 6px;
+  margin-bottom: 20px;
+  border: 5px solid #9494a4;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.grid-container-wordle {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  padding: 100px;
+  padding-top: 40px;
+}

@@ -4,7 +4,7 @@ import Axios from "axios";
 
 export default function PokemonCards() {
   const [pokemonList, setPokemonData] = useState([]);
-  const gridSize = 20;
+  const gridSize = 10;
 
   // @todo prevent duplicates
   function letsGetPokemon() {
@@ -26,6 +26,10 @@ export default function PokemonCards() {
   }
   function newCard() {
     letsGetPokemon();
+  }
+
+  function deleteCard(index) {
+    setPokemonData((pokemonList) => [...pokemonList.splice(index, 1)]);
   }
 
   return (
@@ -50,6 +54,7 @@ export default function PokemonCards() {
               <img
                 src={pokemon.image}
                 className="pokemonImage"
+                onClick={deleteCard(index)}
                 alt="pokemon to display"
               />
               <div className="pokemonName">{pokemon.name}</div>
