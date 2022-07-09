@@ -15,11 +15,11 @@ textarea {
 }
 
 input:focus {
-  border-color: #ffe65e;
+  border-color: #d7ceb2;
 }
 
 input::placeholder {
-  color: purple;
+  color: #4c5760;
 }
 
 .RowWrapper {
@@ -35,11 +35,11 @@ input::placeholder {
 }
 
 .SignUp {
-  color: #ffe65e;
+  color: #d7ceb2;
 }
 
 .SignUp:focus {
-  color: blue;
+  color: #d7ceb2;
 }
 
 .Login.Button {
@@ -47,7 +47,7 @@ input::placeholder {
   padding: 20px 100px;
   margin-top: 25em;
   text-align: center;
-  background-color: #ffe65e;
+  background-color: #d7ceb2;
   justify-content: center;
   font-weight: 600;
   font-size: large;
@@ -76,7 +76,7 @@ input::placeholder {
 
 .MainTitle {
   text-align: center;
-  color: blue;
+  color: #4C5760;
   font-size: 75px;
   margin-bottom: 75px;
 }
@@ -442,7 +442,7 @@ label span input {
 * {
   margin: 0 auto;
   padding: 0;
-  background-color: #2196f3;
+  background-color: #93A8AC;
 }
 
 header {

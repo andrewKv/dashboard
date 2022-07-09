@@ -1,10 +1,9 @@
-import './App.css';
+import "./App.css";
 import React, { useState, useContext } from "react";
 import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
 import { LoginContext, UsernameContext } from "./Context";
 import Axios from "axios";
-
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -19,81 +18,117 @@ function Register() {
 
   let history = useHistory();
 
-
   function handleSubmit() {
-
     // check valid email
-    if (username.length > 0 && password.length > 0 && password === passwordConfirm) {
+    if (
+      username.length > 0 &&
+      password.length > 0 &&
+      password === passwordConfirm
+    ) {
       Axios.post("http://localhost:3001/Register", {
         username: username,
         password: password,
         email: email,
-        photo: userPhoto
+        photo: userPhoto,
       }).then((response) => {
         if (response.data.error) {
-          let userMessage = "Registration Error"
+          let userMessage = "Registration Error";
           switch (response.data.error.code) {
             case "ER_DUP_ENTRY":
-              userMessage += " Username already in use!"
+              userMessage += " Username already in use!";
             default:
-              userMessage += response.data.error.code
+              userMessage += response.data.error.code;
           }
-          setErrorMsg(userMessage)
-        }
-        else {
+          setErrorMsg(userMessage);
+        } else {
           changeLoggedIn(true);
           changeUserName(username);
-          sessionStorage.setItem("authorised", true)
-          sessionStorage.setItem("username", username)
-          history.push('/Dashboard')
+          sessionStorage.setItem("authorised", true);
+          sessionStorage.setItem("username", username);
+          history.push("/Dashboard");
         }
-      })
-    }
-    else {
-      let userMessage = "Form Error"
+      });
+    } else {
+      let userMessage = "Form Error";
       // case switch for each option
-      setErrorMsg(userMessage)
+      setErrorMsg(userMessage);
     }
   }
 
   function changePhoto(e) {
-    setUserPhoto(e.target.files[0].name)
-    setAddVisible(false)
+    setUserPhoto(e.target.files[0].name);
+    setAddVisible(false);
   }
 
-  function setPhotoIcon(){
-    if (addVisible){
-      return "AddIcon User"
+  function setPhotoIcon() {
+    if (addVisible) {
+      return "AddIcon User";
     }
-    return "AddIcon Hide"
+    return "AddIcon Hide";
   }
 
   return (
     <div className="Login">
-      <h1 className="MainTitle">Dev Challenge</h1>
+      <h1 className="MainTitle">Sign up </h1>
       <div className="RowWrapper">
-        <input type="text" placeholder="UserName..." onChange={(e) => { setUsername(e.target.value) }} />
-        <input type="text" placeholder="Email..." onChange={(e) => { setEmail(e.target.value) }} />
+        <input
+          type="text"
+          placeholder="UserName..."
+          onChange={(e) => {
+            setUsername(e.target.value);
+          }}
+        />
+        <input
+          type="text"
+          placeholder="Email..."
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        />
       </div>
       <div className="RowWrapper">
-        <input type="text" placeholder="Password..." onChange={(e) => { setPassword(e.target.value) }} />
-        <input type="text" placeholder="Confirm Password..." onChange={(e) => { setpasswordConfirm(e.target.value) }} />
+        <input
+          type="text"
+          placeholder="Password..."
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+        />
+        <input
+          type="text"
+          placeholder="Confirm Password..."
+          onChange={(e) => {
+            setpasswordConfirm(e.target.value);
+          }}
+        />
       </div>
       <label className={setPhotoIcon()}>
         <span>
-          <input onChange={(e) => { changePhoto(e) }} type="file" accept="image/*" name="image" />
-          <img className="PhotoAdd User" src={process.env.PUBLIC_URL + userPhoto} ></img>
+          <input
+            onChange={(e) => {
+              changePhoto(e);
+            }}
+            type="file"
+            accept="image/*"
+            name="image"
+          />
+          <img
+            className="PhotoAdd User"
+            src={process.env.PUBLIC_URL + userPhoto}
+          ></img>
         </span>
       </label>
 
-      <Button className="Login Button Signup" size="lg" type="submit" onClick={handleSubmit}>
+      <Button
+        className="Login Button Signup"
+        size="lg"
+        type="submit"
+        onClick={handleSubmit}
+      >
         Register
       </Button>
 
-      <p>
-        {errorMsg}
-      </p>
-
+      <p>{errorMsg}</p>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import PokemonCards from "./PokemonCards";
+import Login from "./Register";
 import Register from "./Register";
 import Dashboard from "./Dashboard";
 import News from "./News";
@@ -13,7 +13,6 @@ import {
   TeamsContext,
 } from "./Context";
 import { useState } from "react";
-import Wordle from "./Wordle";
 
 function App() {
   const [loggedIn, changeLoggedIn] = useState(false);
@@ -29,8 +28,7 @@ function App() {
       <Switch>
         <LoginContext.Provider value={{ loggedIn, changeLoggedIn }}>
           <UsernameContext.Provider value={{ user, changeUserName }}>
-            {/* <Route exact path="/" component={Login} /> */}
-            <Route exact path="/" component={Wordle} />
+            <Route exact path="/" component={Login} />
             <Route exact path="/Register" component={Register} />
 
             <NewsContext.Provider value={{ newsObj, changeNewsObj }}>
